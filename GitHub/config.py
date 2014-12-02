@@ -117,6 +117,13 @@ conf.registerChannelValue(GitHub.format, 'pull_request_review_comment',
         .replace('\n        ', ' '),
         _("""Format for pull_request review comment events.""")))
 
+conf.registerChannelValue(GitHub.format, 'ping',
+	registry.String('echo '+
+        _('\x02$repository__description\x02 - $repository__full_name: \x02Ping event: $repository__hook_id\x02 '
+	'\x02Open issues:\x02 $repository__open_issues \x02Random Zen: $zen\x02') \
+	.replace('\n        ', ' '),
+        _("""Format for ping events.""")))
+
 for event_type in ('create', 'delete', 'deployment',
         'deployment_status', 'download', 'follow', 'fork', 'fork_apply',
         'gist', 'gollum', 'member', 'public',
