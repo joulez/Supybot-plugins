@@ -119,8 +119,11 @@ conf.registerChannelValue(GitHub.format, 'pull_request_review_comment',
 
 conf.registerChannelValue(GitHub.format, 'ping',
 	registry.String('echo '+
-        _('\x02$repository__description\x02 - $repository__full_name: \x02Ping event: $repository__hook_id\x02 '
-	'\x02Open issues:\x02 $repository__open_issues \x02Random Zen: $zen\x02') \
+        _('$repository__owner__login/\x02$repository__name\x02: '
+	'\x02$repository__description\x02 '
+        '\x02Ping event\x02: $repository__hook_id '
+	'\x02Open issues\x02: $repository__open_issues '
+	'"\x02$zen\x02"') \
 	.replace('\n        ', ' '),
         _("""Format for ping events.""")))
 
